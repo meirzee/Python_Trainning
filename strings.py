@@ -61,13 +61,20 @@ print ("The extended list is now: " ,numlist )
 
 #Creating a list as a range i.e create a list with 10 elements 0-9
 range(20)
-#print ("The range list contains :", range(10) )
+print ("The range list contains :", range(10) )
+
+#Creating string list
+stringlist = ["abc", "def", "ghi"]
+print ("Following is the string list: ", stringlist)
+stringlist.reverse()
+print ("Following is the reversed string list: ", stringlist )  
+
+#reversing back
+stringlist.reverse()
+
+#append to a list
+stringlist.append("jkl")
+print ("Following is the string list with appended string: ", stringlist)
 
 
 
-
-
-
-
-
-    
