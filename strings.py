@@ -76,5 +76,8 @@ stringlist.reverse()
 stringlist.append("jkl")
 print ("Following is the string list with appended string: ", stringlist)
 
+#Insert into string list
+stringlist.insert(2, "wxyz")
+print ("Following is the string list with inserted value on the 3 place: ", stringlist)
 
 
