@@ -6,7 +6,16 @@ number_of_args = len(sys.argv)
 used_args = len(sys.argv) -1
 script_threshold_args = 3
 
-###### Simple if statment ################
+############### Simple loop example #################################
+string1 = "LinuxCBT Scripting Edition 2004 Python Perl BASH PHP"
+count = 0
+while count < 10:
+    print (string1)
+    count = count + 1
+########################################################################
+
+
+############### Simple if statment ##########################################################################
 print ("#################### simple if statment examples ######################################### \n \n \n ")
 min = 89
 max = 9
@@ -16,7 +25,7 @@ if min < max:
 else:
      print (min, "Is greater than", max )
 
-################# elif statment #############################
+################# elif statment ###################################################################
 #testing the number of arguments passing to the script
 #Note that sys module count the script name as the first argument.
 print ("#################### else if examples ######################################### \n \n \n ")
