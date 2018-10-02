@@ -1,7 +1,5 @@
 #Dictionaries:
 
-#Dictionaries:
-
 #The key is the fruit name and the value is the number so now if we want to extract, insert, change values we do it as follow:
 FOOdMenue = {'apple' : 1, 'orange' : 2 , 'Banana' : 3}
 print ("The dictionary is: " , FOOdMenue )
