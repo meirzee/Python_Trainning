@@ -18,13 +18,11 @@ count = 1
 
 han1.write("%s %d %d \n\n" % (prodname,ProductCost,count) )
 han1.close()
+
 # Putting the values (prodname,ProductCost,count) in the paranthesis turns them into a tuple that way the write function receives them as one argument.
 # The tuple will contain 3 variables that will be assosiated with the 3 formating types accordingly
 
 print (open('meir', 'r').read() )
 
-
-han2 = open('meir' , 'r').read()
-print(han1)
 
 
