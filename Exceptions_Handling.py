@@ -7,7 +7,12 @@ f1 = input("Please specify file name: ")
 try:
     handleFile = open(f1, 'r')
 except:
-    print ("problem openning file :" , f1 , "\n")
+    print ("[]: Problem openning file :" , f1 , "\n")
+else:
+    print ("File name was found.")
+finally:
+    print ("This code will always be executed ...")
+
 
 
 print ("Continuing with script execution")

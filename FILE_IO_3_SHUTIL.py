@@ -26,5 +26,3 @@ s.move("datafile1" , "data_moved")
 
 # How to remove dir:
 # s.rmtree(sourcedir , ignore_errors=True)
-
-

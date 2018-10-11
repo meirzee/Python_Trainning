@@ -3,16 +3,30 @@
 
 import re
 
-# Searching for a match string:
-reg1 = re.compile('meirz') # this will return a compiled string pattern object (abcdefg) and keep it in variable name reg1 and it is loaded to the memory
+print ("\n Following are the Regular expressions method:")
+RE_METHODS = (dir(re))
+for i in RE_METHODS:
+    print (i)
+print ("######################################################## \n")
+
+
+# Searching for a match string a pattern:
+reg1 = re.compile('meirz') # This will compile string pattern and turn it to object (meirz) and keep its memory location on variable name reg1
 reg2 = reg1.match('meirz') # on this line we actually asked the system to check if there is such an object on the system memory it returns a match output (it is case sensetive)
 
-print (reg2.group() ) # will print meir
-print (reg2.match('meirz').group )
+print ("Following line will point to the memory location of meirz object if we have a match on reg2 variable: ")
+print (reg2 ) 
 
+print ("Following line will print the object meirz the Group method will expose it rather then just indicate if there is a match: ")
+print (reg2.group() ) 
 
+print ("\n Following is a different way of checking if meirz exists on memory:")
+print (reg1.match('meirz').group() )
 
-# trying a different string object wich does not exists will return "None"
+print ("\n Following line will return match since meir exists in memory:")
+print (reg1.match('meirz') )
+
+print ("\n Following command will return \"None\" since this object does not exists:")
 print (reg1.match('kkdd'))
 
 
