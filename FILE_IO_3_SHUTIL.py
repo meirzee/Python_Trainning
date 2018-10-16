@@ -26,3 +26,14 @@ s.move("datafile1" , "data_moved")
 
 # How to remove dir:
 # s.rmtree(sourcedir , ignore_errors=True)
+
+# How to replace string with a nother in a complete file:
+# reg1 = re.compile('\d+')
+# filename = "file1"
+# filename2 = "file2"
+#
+# f1 = open(filename, "r")
+# f2 = open(filename2, "w")
+# for i in f1.readlines():
+#   output_value = reg1.sub("stringToUse" , i , count=10) # i is the line we are scanning for digits to replace with the "stringToUse" , The count is optional and will set number of replacements per line we want to do
+#   f2.writelines(output_value)    # if file2 does not exists it will be created during execution

@@ -19,10 +19,13 @@ else:
 
 searchstring = input("Please give a serch string with digits:")
 reg2 = re.compile('\d+' , re.IGNORECASE) 
-#match2 = reg2.search(searchstring)
-match2 = reg2.findall(searchstring)
+match2 = reg2.search(searchstring)
+# Note that search scans all the chars too and if it founds a match it shows it and go to next char until it encounter a none match then it exits
+# for example if I give it 111asc222 it will return 111 but when it will get to char "a" it will exit and will return 111 only
+#if you want it to continue use findall or finditer
+#match2 = reg2.findall(searchstring)
 
 if match2:
-    print ("Found a match for: ", match2 )
+    print ("Found a match for: ", match2.group())
 else:
     print ("No match..")
