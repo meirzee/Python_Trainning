@@ -2,9 +2,9 @@
 #Date: 12 Sept 2018
 #Purpose: Excersise
 
-import time;
-import datetime;
-import calendar;
+import time
+import datetime
+import calendar
 
 from datetime import date
 
@@ -20,12 +20,11 @@ BIRTH_DATE = input("what is your birth date? i.e YYYY-MM-D   \n ")
 def days_between(today, BIRTH_DATE ):
     today = date.today()
     BIRTH_DATE = datetime.strptime(BIRTH_DATE, "%Y-%m-%d")
-    return abs((today - BIRTH_DATE).day)
+    AGE = datetime.timedelta(today, BIRTH_DATE )
+    print (AGE)
 
 
-#AGE = ( today - BIRTH_DATE)
-#print ("Hello", NAME, "You are now ", AGE, "years of age" )
-
+days_between(today, BIRTH_DATE )
 
 
 
