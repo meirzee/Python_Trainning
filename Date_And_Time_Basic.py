@@ -8,7 +8,6 @@ from datetime import datetime
 
 
 
-
 def main():
     # Get the current date
     TODAY = date.today()
@@ -18,7 +17,8 @@ def main():
     #Gets today's date and current time
     TODAY = datetime.now()
     print("The Current date and time is: ", TODAY)
-    #print only time without the date
+
+    #Get only time without the date
     T = datetime.time(datetime.now())
     print ("Time is: ", T)
 
