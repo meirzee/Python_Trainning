@@ -9,7 +9,7 @@ from datetime import datetime
 
 
 def main():
-    # Get the current date
+    # Get the current date date 
     TODAY = date.today()
     print ("Today is: ", TODAY )
     print ("The Date componeents are: ", TODAY.day, TODAY.month, TODAY.year)

@@ -19,11 +19,12 @@ print ("\nOne week ago it was ", s )
 # date arguments are year,month,day
 
 today = date.today() # gets todays date
-Destination_date = date(today.year, 9, 17) 
+Destination_date = date(today.year, 4, 1) 
 
 if Destination_date < today:
     print ("The requested day already went by", (today - Destination_date).days, "days ago" )
-    Destination_date = Destination_date.replace(year=today.year + 1)
-    print ("The next specific day will arrive in: ", abs(Destination_date - today).days )
+    #Destination_date = Destination_date.replace(year=today.year + 1) # This works to for incremanting the year + 1
+    Destination_date = Destination_date + timedelta(days=365)
+    print ("The next specific day will arrive in: ", abs(Destination_date - today).days , "days")
 else:
     print ("The requested date will arrive in: ", (Destination_date - today).days ,"days" )
