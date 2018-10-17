@@ -2,37 +2,27 @@
 #Date: 12 Sept 2018
 #Purpose: Excersise
 
-import time
-import datetime
-import calendar
-
 from datetime import date
-
-today = date.today()
-print ("Today is:", today)
-
-print ("-------- Life Expectancy V1 --------")
-
-
-NAME = input("What is your name? ")
-BIRTH_DATE = input("what is your birth date? i.e YYYY-MM-D   \n ")
-
-def days_between(today, BIRTH_DATE ):
-    today = date.today()
-    BIRTH_DATE = datetime.strptime(BIRTH_DATE, "%Y-%m-%d")
-    AGE = datetime.timedelta(today, BIRTH_DATE )
-    print (AGE)
-
-
-days_between(today, BIRTH_DATE )
+from datetime import time
+from datetime import datetime
 
 
 
 
+def main():
+    # Get the current date
+    TODAY = date.today()
+    print ("Today is: ", TODAY )
+    print ("The Date componeents are: ", TODAY.day, TODAY.month, TODAY.year)
+
+    #Gets today's date and current time
+    TODAY = datetime.now()
+    print("The Current date and time is: ", TODAY)
+    #print only time without the date
+    T = datetime.time(datetime.now())
+    print ("Time is: ", T)
 
 
 
-
-
-
-#END
+if __name__ == "__main__":
+    main()
