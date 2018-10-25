@@ -1,0 +1,24 @@
+{
+    "remotePath": "/users/admin/ORA_API/docker-python-oracle/work",
+    "host": "ilde34002.eaas.amdocs.com",
+    "username": "admin",
+    "password": "Unix11!",
+    "port": 22,
+    "secure": false,
+    "protocol": "sftp",
+    "uploadOnSave": false,
+    "passive": false,
+    "debug": false,
+    "privateKeyPath": null,
+    "passphrase": null,
+    "ignore": [
+        "\\.vscode",
+        "\\.git",
+        "\\.DS_Store"
+    ],
+    "generatedFiles": {
+        "uploadOnSave": false,
+        "extensionsToInclude": [],
+        "path": ""
+    }
+}
