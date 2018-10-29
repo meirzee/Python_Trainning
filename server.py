@@ -5,10 +5,19 @@ from flask import Flask, jsonify, request, render_template
 import json
 import time
 import logging
+from flask import request
+import jsonschema
+import os
 
-LOG_LEVEL=""
+LOG_LEVEL="INFO"
 
-logging.basicConfig(level=logging.DEBUG)
+if  os.environ.get('LOG_LEVEL'):
+    LOG_LEVEL=os.environ.get('LOG_LEVEL')
+
+LOG_NUM_SEV = getattr(logging,LOG_LEVEL.upper(),logging.INFO)
+
+
+logging.basicConfig(level=LOG_NUM_SEV)
 logging.debug('Started')
 
 app = Flask(__name__)
@@ -26,7 +35,7 @@ def run_select(user, password, db_host, db_port, instanse, query):
     cursor = None
     try:
         #connect to database and execute query.
-        db = cx_Oracle.connect(user, password, db_host+":"+db_port+"/" + instanse)
+        db = cx_Oracle.connect(user, password, db_host+":"+str(db_port)+"/" + instanse)
         cursor = db.cursor()
         cursor.execute(query) 
         for row in cursor:
@@ -45,19 +54,29 @@ def run_select(user, password, db_host, db_port, instanse, query):
     return return_data
 
 
-@app.route('/myhtml')
-def index():
-   return jsonify(return_data)
 
-# @app.route('/s')
-# def select():
-#     #return_data = run_select(user, password, db_host, db_port, instanse, query)
-#     return render_template('select.html', posts=return_data)
-  
+@app.route('/info')
+def get_info():
+    info = {
+        "ORA_CLIENT_VERSION": os.environ.get('ORA_CLIENT_VERSION'),
+        "PYTHON_VERSION": os.environ.get('PYTHON_VERSION'),
+        "ORA_API_VERSION":os.environ.get('ORA_API_VERSION')
+    }
+    return jsonify(info)
+
 
 @app.route('/api/v1/select' , methods=['POST'])
 def select():
     data = request.get_json()
+    try:
+    # Validate the user request format
+        with open('/opt/data/api/ORA_API_schema.json') as data_file:
+            load_schema = json.loads(data_file.read())
+        jsonschema.validate(data, load_schema)
+    except jsonschema.exceptions.ValidationError as exception:
+        error_msg = "Issue with Input json data" + exception.message.replace("u'", "'")
+        return jsonify({"error_msg": error_msg}), 400
+
     query = data['query']
     return_data = run_select(data['User'], data['password'], data['db_host'], data['db_port'], data['instance'], query)
     logging.debug('Return select query:', return_data )
