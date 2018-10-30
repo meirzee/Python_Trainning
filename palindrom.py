@@ -12,7 +12,7 @@ for i in stringB:
 str1 = ''.join(str(e) for e in stringC)
 print ("The reversed form is", str1)
 
-if str1 == stringA:s
+if str1 == stringA:
     print ("The word is a palindrom.")
 else:
     print ("It is not a palindrom")
