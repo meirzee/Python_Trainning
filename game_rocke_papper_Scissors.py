@@ -16,8 +16,6 @@ while play == "yes":
 
     p1 = p1.upper()
     p2 = p2.upper()
-
-    print ("count is : " , count)    #to be deleted
     
     if p1 not in options and count <= 3:
         print ("Not a valid option!, please try again..")
