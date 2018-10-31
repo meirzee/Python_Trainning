@@ -1,4 +1,4 @@
-#palindrom Excersice    
+#palindrom Excersice  Looping inside the string  
 import sys
 
 word = input('please insert a string: ')
@@ -22,4 +22,3 @@ for i in word:
         print ("The string is a palindrom")
         print (word, "and its reversed pattern are identical" )
         sys.exit()
-
