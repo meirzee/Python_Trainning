@@ -1,13 +1,14 @@
 #!/usr/bin/python
 
 import cx_Oracle
-from flask import Flask, jsonify, request, render_template
 import json
 import time
 import logging
-from flask import request
 import jsonschema
 import os
+
+from flask import Flask, jsonify, request, render_template
+import requests
 
 LOG_LEVEL="INFO"
 
@@ -31,7 +32,7 @@ def run_select(user, password, db_host, db_port, instanse, query):
         'count': 0,
         'execution_time': 0
     }
-    logging.debug('Executing: run_select with args:', user, password, db_host, db_port, instanse, query  )
+    logging.debug('Executing: run_select with args:', user, "xxxxx", db_host, db_port, instanse, query  )
     cursor = None
     try:
         #connect to database and execute query.
@@ -77,8 +78,19 @@ def select():
         error_msg = "Issue with Input json data" + exception.message.replace("u'", "'")
         return jsonify({"error_msg": error_msg}), 400
 
+    try:
+        #validate we have user/passwd    
+        auth = request.authorization
+        db_user = auth.username
+        db_password = auth.password
+    except:
+        logging.error('Authentication details are missing:', auth )        
+
     query = data['query']
-    return_data = run_select(data['User'], data['password'], data['db_host'], data['db_port'], data['instance'], query)
+    return_data = run_select(db_user, db_password, data['db_host'], data['db_port'], data['instance'], query)
+    if return_data:
+        logging.error('Return select query is empty' )
+
     logging.debug('Return select query:', return_data )
     return jsonify(return_data)
     

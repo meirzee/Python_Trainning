@@ -2,23 +2,15 @@
 import sys
 
 word = input('please insert a string: ')
-reversedword = reversed(word)
-word_lenght = len(word)
-word_iter = word_lenght // 2
-count = 0
-print ("word lenght is: ", word_lenght)
+word_lenght = len(word) 
 
-for i in word:
-    w = i
-    r = word[word_lenght - 1]
-    word_lenght = word_lenght - 1
-    count = count + 1
-    if w == r:
-        pass
-    else:
+for i in range(1,word_lenght// 2):
+    w = word[i-1]
+    r = word[word_lenght - i]
+    if w != r:
         print ("not palindrom..")
         sys.exit()
-    if (count > word_iter):
-        print ("The string is a palindrom")
-        print (word, "and its reversed pattern are identical" )
-        sys.exit()
+
+print ("The string is a palindrom")
+print (word, "and its reversed pattern are identical" )
+sys.exit()
