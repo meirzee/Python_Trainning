@@ -1,0 +1,23 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "ORA_API Schema V1",
+    "type": "object",
+    "required": ["db_host", "db_port", "instance", "commit" ],
+    "properties": {
+          "db_host":{
+            "type": "string"
+        },
+          "db_port":{
+            "type": "integer"
+        },
+          "instance":{
+            "type": "string"
+        },
+        "commit":{
+          "type": "boolean"
+        },
+          "query":{
+            "type": "string"
+        }
+    }
+}
