@@ -68,7 +68,8 @@ def run_select(user, password, db_host, db_port, instanse, query, commit):
             cursor.close()
 
     end_time = time.time()
-    return_data['count'] = len(return_data['result'])
+    #return_data['count'] = len(return_data['result'])
+    return_data['count'] = cursor.rowcount
     return_data['execution_time'] = end_time - start_time
     return return_data, response_status
 
