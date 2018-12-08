@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>SSH Sync keys</title>
+</head>
+<body>
+
+<h1>This tool will sync ssh keys between two unix accounts.</h1>
+<p>The ssh will be set between unix accounts </p>
+<p>Note that the known host file will not be updated by this tool</p>
+
+<form action="/action_page.php">
+Target Machine Name: <input type="text" name="target_machine_name" value=""><br>
+Target Unix Account: <input type="text" name="trget_unix_account" value=""><br>
+Target Unix Account Password: <input type="text" name="target_unix_account_password" value=""><br>
+
+Source Machine Name: <input type="text" name="source_machine_name" value=""><br>
+Source Unix Account: <input type="text" name="source_unix_account" value=""><br>
+Source Unix Account Password: <input type="text" name="source_unix_account_password" value=""><br>
+
+<input type="submit" value="Submit">
+</form>
+
+<p>Click the "Submit" button and the form-data will be sent to a page on the server called "/action_page.php".</p>
+
+</body>
+</html>
